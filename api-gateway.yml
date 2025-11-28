@@ -9,12 +9,11 @@ spring:
     gateway:
       routes:
         - id: contact-service
-          uri: lb://contact-ms          # must match spring.application.name of contact MS
+          uri: lb://contact-ms
           predicates:
             - Path=/contacts/**
-
         - id: user-service
-          uri: lb://user-ms             # must match spring.application.name of user MS
+          uri: lb://user-ms
           predicates:
             - Path=/user/**
 
