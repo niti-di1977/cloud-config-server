@@ -12,6 +12,7 @@ spring:
           uri: lb://contact-ms
           predicates:
             - Path=/contacts/**
+            
         - id: user-service
           uri: lb://user-ms
           predicates:
