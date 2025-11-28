@@ -1,17 +1,22 @@
 spring:
-    application:
-       name: APIGateway
-    cloud:
-        gateway:
-          routes:
-            - id:  user-ms
-              uri: lb://user-ms
-              predicates:
-                - Path=/user/**
-            - id: contact-ms
-              uri: lb://contact-ms
-              predicates:
-                - Path=/contacts/**
+  application:
+    name: GATEWAY-SERVICE
+  cloud:
+    gateway:
+      routes:
+        - id: contact-service
+          uri: lb://contact-ms
+          predicates:
+            - Path=/service1/contacts/**
+          filters:
+            - StripPrefix=1 # will remove the /prefix1 i.e. service1 and forward with http://localhost:8082/contacts/**
+
+        - id: user-service
+          uri: lb://user-ms
+          predicates:
+            - Path=/service2/user/**
+          filters:
+            - StripPrefix=1 # will remove the /prefix1 i.e. service2 and forward with http://localhost:8081/user/**
 eureka:
   client:
     register-with-eureka: true
