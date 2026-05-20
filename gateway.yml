@@ -15,10 +15,10 @@ spring:
     gateway:
       routes:
         - id: contact-service
-          uri: lb://contact-ms
+          uri: lb://CONTACT-MS
           predicates:
             - Path=/contacts/**
         - id: user-service
-          uri: lb://user-ms
+          uri: lb://USER-MS
           predicates:
             - Path=/user/**
