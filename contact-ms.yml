@@ -1,6 +1,6 @@
 spring:
   application:
-    name: contact-service
+    name: contact-ms
 
 server:
   port: 8082
