@@ -1,6 +1,6 @@
 spring:
   application:
-    name: user-service
+    name: user-ms
 
 server:
   port: 8081
